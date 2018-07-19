@@ -1,7 +1,7 @@
 """it wraps all the disjoint function to create summarizer."""
 #oggpnson
 #hkhr
-from TextCover.tokenizer import sentence_tokenizer
+from TextCover.tokenizer import Tokenizer
 from TextCover.graph import compute_adjacency_matrix, threshold_graph
 from TextCover.score import compute_page_rank, compute_text_cover_score, select_top_sentences
 from TextCover.vectorizer import Vectorizer
@@ -13,11 +13,12 @@ class Summarizer:
     def __init__(self):
         """it initializes ..."""
         self.vectorizer = Vectorizer()
+        self.tokenizer = Tokenizer()
 
     def summarize(self, text, distance_threshold, summary_length=5, verbose=True):
         """magic!"""
         # Step-0: Break the text into sentences.
-        sentences = sentence_tokenizer(text)
+        sentences = self.tokenizer.sentence_tokenizer(text)
         # Step-1: Vectorize each sentence.
         sentence_vectors = self.vectorizer.vectorize_sentences(sentences)
         # Step-2: Compute distance between each pair of sentence.
