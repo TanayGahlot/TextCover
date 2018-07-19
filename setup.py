@@ -13,6 +13,9 @@ setup(name='TextCover',
       packages=['TextCover'],
       install_requires=[
           'spacy',
-          'tensorflow'
+          'tensorflow',
+          'tensorflow_hub',
+          'scipy',
+          'numpy'
       ],
       zip_safe=False)
