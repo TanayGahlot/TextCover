@@ -31,4 +31,4 @@ class Summarizer:
         graph = compute_text_cover_score(graph)
         # Step-6: Select the top-{summary_length} no of sentences.
         sentences = select_top_sentences(graph, summary_length)
-        return sentences
+        return adjacency_matrix
