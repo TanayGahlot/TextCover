@@ -3,16 +3,14 @@
 #hkhr
 from subprocess import call
 import spacy
+import en_core_web_sm
 
 
 def load_spacy_language_module():
     """it loads language module if it's pre-downloaded, else it downloads it."""
-    try:
-        nlp = spacy.load('xx')
-        return nlp
-    except OSError:
-        call(["python", "-m", "spacy", "download", "xx"])
-        load_spacy_language_module()
+    nlp = en_core_web_sm.load()
+    return nlp
+
 
 class Tokenizer:
     """it tokenizes raw_text into sentences using spacy's tokenizer."""
