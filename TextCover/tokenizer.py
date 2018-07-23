@@ -8,7 +8,7 @@ import spacy
 def load_spacy_language_module():
     """it loads language module if it's pre-downloaded, else it downloads it."""
     try:
-        nlp = spacy.load('en')
+        nlp = spacy.load('xx')
         return nlp
     except OSError:
         call(["python", "-m", "spacy", "download", "xx"])
