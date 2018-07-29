@@ -9,5 +9,5 @@ if __name__ == "__main__":
     sample_example = load_sample_example()
     # instantiate the summarizer.
     summarizer = Summarizer()
-    summary = summarizer.summarize(sample_example, distance_threshold=.2,
+    summary = summarizer.summarize(sample_example, similarity_threshold=.2,
                                    summary_length=5)

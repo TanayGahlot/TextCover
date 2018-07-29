@@ -2,6 +2,7 @@
 #oggpnosn #hkhr
 import numpy as np
 import scipy
+import networkx as nx
 
 def compute_similarity(vector_1, vector_2):
     """it computes cosine similarity between two vectors."""
@@ -24,6 +25,21 @@ def compute_adjacency_matrix(sentence_vectors):
             adjacency_matrix[index_2][index_1] = score
     return adjacency_matrix
 
-def threshold_graph(adjacency_matrix, distance_threshold):
-        """it returns a networkx graph by selecting edges above a threshold."""
-        pass
+def threshold_graph(sentences, adjacency_matrix, similarity_threshold):
+    """it returns a networkx graph by selecting edges above a threshold."""
+    # intialize and undirected graph.
+    graph = nx.Graph()
+    # iterate through all sentence pair(upper triangular matrix only.)
+    no_of_sentences = adjacency_matrix.shape[0]
+    for index_1 in range(no_of_sentences):
+        for index_2 in range(index_1+1, no_of_sentences):
+            # get all the information necessary to form the graph.
+            sentence_1 = sentences[index_1]
+            sentence_2 = sentences[index_2]
+            similarity = adjacency_matrix[index_1][index_2]
+            # if similarity > similarity_threshold
+            if similarity > similarity_threshold:
+                # form an edge with weight as distance
+                graph.add_edge(sentence_1, sentence_2,
+                               weight=similarity_threshold)
+    return graph
