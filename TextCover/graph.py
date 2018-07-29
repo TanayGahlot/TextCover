@@ -41,5 +41,5 @@ def threshold_graph(sentences, adjacency_matrix, similarity_threshold):
             if similarity > similarity_threshold:
                 # form an edge with weight as distance
                 graph.add_edge(sentence_1, sentence_2,
-                               weight=similarity_threshold)
+                               weight=similarity)
     return graph
