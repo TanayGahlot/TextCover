@@ -25,10 +25,10 @@ class Summarizer:
         adjacency_matrix = compute_adjacency_matrix(sentence_vectors)
         # Step-3: Threshold the graph using "distance_threshold"
         graph = threshold_graph(sentences, adjacency_matrix, similarity_threshold)
-        # Step-4: Compute node score on the basis of page rank.
-        graph = compute_page_rank(graph)
-        # Step-5: Compute hybrid TextCover score.
-        graph = compute_text_cover_score(graph)
-        # Step-6: Select the top-{summary_length} no of sentences.
-        sentences = select_top_sentences(graph, summary_length)
+        # # Step-4: Compute node score on the basis of page rank.
+        # graph = compute_page_rank(graph)
+        # # Step-5: Compute hybrid TextCover score.
+        # graph = compute_text_cover_score(graph)
+        # # Step-6: Select the top-{summary_length} no of sentences.
+        # sentences = select_top_sentences(graph, summary_length)
         return graph
