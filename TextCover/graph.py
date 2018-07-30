@@ -42,4 +42,8 @@ def threshold_graph(sentences, adjacency_matrix, similarity_threshold):
                 # form an edge with weight as distance
                 graph.add_edge(sentence_1, sentence_2,
                                weight=similarity)
+            else:
+                # just add nodes without edges.
+                graph.add_node(sentence_1)
+                graph.add_node(sentence_2)
     return graph
