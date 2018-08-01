@@ -21,6 +21,8 @@ class Tokenizer:
 
     def sentence_tokenizer(self, text):
         """it returns list of sentences."""
+        # replace the newline with spac.
+        text = text.replace("\n", " ")
         # process the document using spacy's nlp kit.
         doc = self.nlp(text)
         # convert all the sentences into text.
